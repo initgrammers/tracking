@@ -4,14 +4,16 @@ import {StyleSheet} from 'react-native';
 import {useTheme} from '@shopify/restyle';
 import {Text} from './theme';
 
-export default ({label, variant = 'default', onPress, children}) => {
+export default ({label, variant = 'default', onPress, children, mb = 8}) => {
   const theme = useTheme();
   const backgroundColor =
     variant === 'primary' ? theme.colors.primary : theme.colors.gray;
   const color = variant === 'primary' ? theme.colors.white : theme.colors.title;
 
   return (
-    <RectButton style={[styles.container, {backgroundColor}]} onPress={onPress}>
+    <RectButton
+      style={[styles.container, {backgroundColor, marginBottom: mb}]}
+      onPress={onPress}>
       {children ? (
         children
       ) : (

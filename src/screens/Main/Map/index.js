@@ -1,7 +1,9 @@
 import React, {memo, useEffect, useRef, useState} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
-import {Box, Text} from '../../../components';
-import MapView, {PROVIDER_GOOGLE, Polyline, Marker} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import {Box} from '../../../components';
+import MapView, {PROVIDER_GOOGLE, Polyline} from 'react-native-maps';
+import CustomMarker from './components/Marker';
+import Details from './components/Details';
 
 const {width, height} = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -25,10 +27,7 @@ const styles = StyleSheet.create({
 
 const Map = ({route}) => {
   const {history, distance = 0} = route.params;
-  const LATITUDE_DELTA =
-    typeof distance !== 'string' || distance > 0
-      ? Number(distance / 40)
-      : 0.1022;
+  const LATITUDE_DELTA = distance > 0 ? Number(distance / 40) : 0.1022;
   const latitudeDelta = LATITUDE_DELTA;
   const longitudeDelta = LATITUDE_DELTA * ASPECT_RATIO;
   const [styleMap, setStyleMap] = useState(1);
@@ -43,29 +42,6 @@ const Map = ({route}) => {
   useEffect(() => {
     setStyleMap(0);
   }, []);
-  const Details = ({distance}) => (
-    <Box
-      width="100%"
-      bottom={0}
-      borderRadius="l"
-      p="l"
-      height={120}
-      alignItems="center"
-      justifyContent="center"
-      backgroundColor="white">
-      <Box mb="m">
-        <Text variant="h6" color="primary">
-          Detalles
-        </Text>
-        <Text variant="p" color="black">
-          Distancia: {distance} km
-        </Text>
-        <Text variant="p" color="black">
-          Fecha: 12/12/20
-        </Text>
-      </Box>
-    </Box>
-  );
   return (
     <Box style={styles.container}>
       <MapView
@@ -80,10 +56,10 @@ const Map = ({route}) => {
           <>
             <Polyline
               coordinates={history}
-              strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+              strokeColor="#000"
               strokeColors={[
                 '#7F0000',
-                '#00000000', // no color, creates a "long" gradient between the previous and next coordinate
+                '#00000000',
                 '#B24112',
                 '#E5845C',
                 '#238C23',
@@ -91,26 +67,8 @@ const Map = ({route}) => {
               ]}
               strokeWidth={6}
             />
-            <Marker coordinate={history[0]}>
-              <Box
-                backgroundColor="black"
-                width={50}
-                justifyContent="center"
-                alignItems="center"
-                height={50}>
-                <Text color="white">Inicio</Text>
-              </Box>
-            </Marker>
-            <Marker coordinate={lastItem}>
-              <Box
-                backgroundColor="black"
-                width={50}
-                justifyContent="center"
-                alignItems="center"
-                height={50}>
-                <Text color="white">Fin</Text>
-              </Box>
-            </Marker>
+            <CustomMarker coords={history[0]} title="Inicio" />
+            <CustomMarker coords={lastItem} title="Fin" />
           </>
         )}
       </MapView>

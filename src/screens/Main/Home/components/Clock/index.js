@@ -2,7 +2,8 @@ import {useTheme} from '@shopify/restyle';
 import React from 'react';
 import {RectButton} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Box, Text} from '../../../../components';
+import {Box, Text} from '../../../../../components';
+import {formatNumber} from './formatData';
 
 const Clock = ({isPlay, minutes = 0, seconds = 0, hours = 0, onChange}) => {
   const WIDTH = 250;
@@ -10,6 +11,10 @@ const Clock = ({isPlay, minutes = 0, seconds = 0, hours = 0, onChange}) => {
   const margin = 16;
   const theme = useTheme();
   const primary = theme.colors.primary;
+  const labelSeconds = formatNumber(seconds);
+  const labelMinutes = formatNumber(minutes);
+  const labelHours = formatNumber(hours);
+
   return (
     <RectButton
       onPress={onChange}
@@ -31,8 +36,8 @@ const Clock = ({isPlay, minutes = 0, seconds = 0, hours = 0, onChange}) => {
         ) : (
           <Icon name="play" size={100} color="white" />
         )}
-        <Text variant="caption" color="secondary">
-          {`${hours}:${minutes}:${seconds}`}
+        <Text color="white">
+          {`${labelHours}:${labelMinutes}:${labelSeconds}`}
         </Text>
       </Box>
     </RectButton>

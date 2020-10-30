@@ -36,7 +36,6 @@ const useTracking = (isActive) => {
               currentLatitude: coords.latitude,
               currentLongitude: coords.longitude,
             });
-            console.log(prevDistance, km);
             const _distance = Number(prevDistance) + Number(km);
 
             return Number(_distance).toFixed(2);
