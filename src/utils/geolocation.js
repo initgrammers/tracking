@@ -1,5 +1,3 @@
-import {clockRunning} from 'react-native-reanimated';
-
 export const getDistanceFromLatLonInKm = ({
   lastLatitude,
   lastLongitude,
@@ -16,15 +14,7 @@ export const getDistanceFromLatLonInKm = ({
       Math.sin(dLon / 2) *
       Math.sin(dLon * 2);
   const c = 2 * Math.atan(Math.sqrt(a), Math.sqrt(1 - a));
-  console.log({
-    lastLatitude,
-    lastLongitude,
-    currentLatitude,
-    currentLongitude,
-    dLat,
-    dLon,
-    a,
-  });
+
   return Number(RADIO * c);
 };
 

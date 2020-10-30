@@ -4,7 +4,7 @@ import {RectButton} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Box, Text} from '../../../../components';
 
-const Clock = ({isPlay, isStop, onChange}) => {
+const Clock = ({isPlay, minutes = 0, seconds = 0, hours = 0, onChange}) => {
   const WIDTH = 250;
   const RADIUS = WIDTH / 2;
   const margin = 16;
@@ -32,7 +32,7 @@ const Clock = ({isPlay, isStop, onChange}) => {
           <Icon name="play" size={100} color="white" />
         )}
         <Text variant="caption" color="secondary">
-          12:12
+          {`${hours}:${minutes}:${seconds}`}
         </Text>
       </Box>
     </RectButton>

@@ -28,6 +28,8 @@ target 'GlobalChem' do
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
 
+  # React Native background timer
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
 end
 
 target 'GlobalChem-tvOS' do
