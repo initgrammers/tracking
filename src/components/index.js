@@ -1,9 +1,10 @@
 import {Box, Text} from './theme';
-import Button from './Button';
 import ButtonOutline from './ButtonOutline';
 import RoundedButton from './RoundedButton';
 import CustomText from './CustomText';
 import LayoutBackground from './Layouts/WithBackground';
+import TextInput from './TextInput';
+import Button from './Button';
 export {
   Box,
   Text,
@@ -12,4 +13,5 @@ export {
   LayoutBackground,
   RoundedButton,
   CustomText,
+  TextInput,
 };

@@ -23,15 +23,5 @@ const Login = () => {
       </Box>
     </LayoutBackground>
   );
-
-  /* return (
-    <HomeLayout>
-      <Text>Login</Text>
-      <Button
-        label="Ir al Home"
-        onPress={() => reset({routes: [{name: 'Main'}]})}
-      />
-    </HomeLayout>
-  ); */
 };
 export default Login;
