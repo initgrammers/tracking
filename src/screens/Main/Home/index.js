@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import HomeLayout from '../../../Layouts/Home';
 import Clock from './components/Clock';
 import useTracking from '../../../hooks/useTracking';
