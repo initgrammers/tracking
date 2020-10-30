@@ -5,7 +5,7 @@ import {Box} from '../components';
 const HomeLayout = ({children}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Box flex={1} justifyContent="center" alignItems="center">
+      <Box flex={1} alignItems="center" pt="xl">
         {children}
       </Box>
     </SafeAreaView>

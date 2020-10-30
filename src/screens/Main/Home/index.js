@@ -4,7 +4,7 @@ import HomeLayout from '../../../Layouts/Home';
 import Clock from './components/Clock';
 import useTracking from '../../../hooks/useTracking';
 import useTicTac from '../../../hooks/useTicTac';
-import {Button, Text} from '../../../components';
+import {Box, Button, Text, RoundedButton} from '../../../components';
 
 const Home = () => {
   const {navigate} = useNavigation();
@@ -19,7 +19,7 @@ const Home = () => {
     pauseClock,
     resetClock,
   } = useTicTac(play);
-
+  const canStop = !play && exitsHistory;
   const onStart = () => {
     setPlay(true);
     startClock();
@@ -36,8 +36,9 @@ const Home = () => {
   };
   return (
     <HomeLayout>
-      <Text variant="h1" color="primary">
-        {distance} km
+      <Text textAlign="center" variant="caption">
+        De ser posible no ponga la aplicacion en segundo plano ni apage la
+        pantalla
       </Text>
       <Clock
         seconds={seconds}
@@ -46,15 +47,26 @@ const Home = () => {
         isPlay={play}
         onChange={() => (play ? onPause() : onStart())}
       />
-      <Button
+      <Box alignItems="center" mb="l">
+        <Text variant="p" color="primary">
+          {distance} km
+        </Text>
+        <Text variant="caption">Distancia</Text>
+      </Box>
+      {/* <Button
         label="Ir al mapa.."
         onPress={() => navigate('Map', {history, distance})}
+      /> */}
+      <RoundedButton
+        variant="primary"
+        label={play ? 'Pausar' : 'Iniciar'}
+        onPress={() => (play ? onPause() : onStart())}
       />
-      {play && <Button label="Detener" onPress={onStop} />}
-      {!play && exitsHistory && (
+      {canStop && (
         <>
-          <Button label="Detener" onPress={onStop} />
+          <RoundedButton label="Detener" onPress={onStop} />
           <Button
+            variant="primary"
             label="Guardar"
             onPress={() => {
               alert('Guardar');
