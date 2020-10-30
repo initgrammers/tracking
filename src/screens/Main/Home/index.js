@@ -29,10 +29,15 @@ const Home = () => {
     setPlay(false);
     pauseClock();
   };
+  const onStop = () => {
+    setPlay(false);
+    resetClock();
+    resetTacking();
+  };
   return (
     <HomeLayout>
       <Text variant="h1" color="primary">
-        {distance} KM
+        {distance} km
       </Text>
       <Clock
         seconds={seconds}
@@ -42,24 +47,20 @@ const Home = () => {
         onChange={() => (play ? onPause() : onStart())}
       />
       <Button
-        label="Detener"
-        onPress={() => {
-          resetClock();
-          setPlay(false);
-        }}
-      />
-      <Button
         label="Ir al mapa.."
         onPress={() => navigate('Map', {history, distance})}
       />
-      {play && exitsHistory && (
-        <Button
-          label="Detener"
-          onPress={() => {
-            setPlay(false);
-            resetTacking();
-          }}
-        />
+      {play && <Button label="Detener" onPress={onStop} />}
+      {!play && exitsHistory && (
+        <>
+          <Button label="Detener" onPress={onStop} />
+          <Button
+            label="Guardar"
+            onPress={() => {
+              alert('Guardar');
+            }}
+          />
+        </>
       )}
     </HomeLayout>
   );
