@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {useFormik} from 'formik';
 import {Box, Button, Text, TextInput} from '../../../../components';
 import {useNavigation} from '@react-navigation/native';
 
 const Form = () => {
-  const {navigate} = useNavigation();
+  const {reset} = useNavigation();
   const initialValues = {
     email: '',
     password: '',
@@ -58,13 +57,11 @@ const Form = () => {
         Olvidaste tu contraseña
       </Text>
       <Button
-        label="Iniciar sesión"
         variant="primary"
-        onPress={() => navigate('Home')}
+        label="Ir al Home"
+        onPress={() => reset({routes: [{name: 'Main'}]})}
       />
     </Box>
   );
 };
-Form.propTypes = {};
-Form.defaultProps = {};
 export default Form;

@@ -1,5 +1,7 @@
 import {Box, Text} from './theme';
-import Button from './Button';
-import ButtonOutline from './ButtonOutline';
 import LayoutBackground from './Layouts/WithBackground';
-export {Box, Text, Button, ButtonOutline, LayoutBackground};
+import ButtonOutline from './ButtonOutline';
+import TextInput from './TextInput';
+
+import Button from './Button';
+export {Box, Text, Button, TextInput, ButtonOutline, LayoutBackground};
