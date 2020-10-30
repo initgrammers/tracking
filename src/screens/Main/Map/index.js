@@ -4,6 +4,7 @@ import {Box} from '../../../components';
 import MapView, {PROVIDER_GOOGLE, Polyline} from 'react-native-maps';
 import CustomMarker from './components/Marker';
 import Details from './components/Details';
+import {formatGeneralDate} from '../../../utils/dates';
 
 const {width, height} = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -26,7 +27,8 @@ const styles = StyleSheet.create({
 });
 
 const Map = ({route}) => {
-  const {history, distance = 0} = route.params;
+  const {history, distance = 0, id} = route.params;
+  const labelDate = formatGeneralDate(id);
   const LATITUDE_DELTA = distance > 0 ? Number(distance / 40) : 0.1022;
   const latitudeDelta = LATITUDE_DELTA;
   const longitudeDelta = LATITUDE_DELTA * ASPECT_RATIO;
@@ -72,7 +74,7 @@ const Map = ({route}) => {
           </>
         )}
       </MapView>
-      <Details distance={distance} />
+      <Details distance={distance} date={labelDate} />
     </Box>
   );
 };

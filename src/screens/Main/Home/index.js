@@ -4,12 +4,16 @@ import HomeLayout from '../../../Layouts/Home';
 import Clock from './components/Clock';
 import useTracking from '../../../hooks/useTracking';
 import useTicTac from '../../../hooks/useTicTac';
+import useLocationRedux from '../../../hooks/useLocationRedux';
 import {Box, Button, Text, RoundedButton} from '../../../components';
+import {Alert} from 'react-native';
+import _ from 'lodash';
+import ListSites from './components/ListSites';
 
 const Home = () => {
-  const {navigate} = useNavigation();
   const [play, setPlay] = useState(false);
   const {resetTacking, history, distance} = useTracking(play);
+  const {saveLocation, locations} = useLocationRedux();
   const exitsHistory = history.length > 5;
   const {
     minutes,
@@ -35,6 +39,36 @@ const Home = () => {
     resetTacking();
   };
 
+  const onSave = () => {
+    if (!_.isEmpty(history)) {
+      saveLocation({history, distance, time: {minutes, seconds, hours}});
+    }
+    onStop();
+    Alert.alert(
+      'Alerta',
+      'Los datos no son suficientes para guardar la sesion',
+      [{text: 'OK'}],
+      {
+        cancelable: false,
+      },
+    );
+  };
+  const handleSave = () => {
+    Alert.alert(
+      'Confimación',
+      '¿Está seguro de guardar la sesión?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => onSave()},
+      ],
+      {
+        cancelable: false,
+      },
+    );
+  };
   return (
     <HomeLayout>
       <Text textAlign="center" variant="caption">
@@ -62,15 +96,10 @@ const Home = () => {
       {canStop && (
         <>
           <RoundedButton label="Detener" onPress={onStop} />
-          <Button
-            variant="primary"
-            label="Guardar"
-            onPress={() => {
-              alert('Guardar');
-            }}
-          />
+          <Button variant="primary" label="Guardar" onPress={handleSave} />
         </>
       )}
+      <ListSites data={locations} />
     </HomeLayout>
   );
 };

@@ -18,7 +18,7 @@ const useTracking = (isActive) => {
       return;
     }
     BackgroundGeolocation.onLocation(
-      ({coords}) => {
+      ({coords, uuid, timestamp}) => {
         setLocation((prev) => ({
           ...prev,
           latitude: coords.latitude,
@@ -44,6 +44,8 @@ const useTracking = (isActive) => {
           return prev.concat({
             latitude: coords.latitude,
             longitude: coords.longitude,
+            uuid,
+            timestamp,
           });
         });
       },

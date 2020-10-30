@@ -1,6 +1,6 @@
 import {locationActions} from './types';
 
-export const saveLocation = (location) => ({
+export const addLocation = (location) => ({
   type: locationActions.SAVE,
   payload: location,
 });

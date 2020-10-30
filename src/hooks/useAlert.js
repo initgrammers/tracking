@@ -15,7 +15,7 @@ const useAlert = () => {
       style: 'cancel',
     },
   }) => {
-    Alert.alert(title, message, [...rightButton, ...leftButton], {
+    Alert.alert(title, message, [rightButton, leftButton], {
       cancelable: false,
     });
   };
