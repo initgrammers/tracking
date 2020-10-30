@@ -12,7 +12,10 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
-       <meta-data
+       
+      <meta-data android:name="com.transistorsoft.locationmanager.license" android:value="eb8ee62a24ca51c5d4c87f4fad356fb8660a6ae401b9d95642f7b80e7cc59c06" />
+      <meta-data android:name="com.transistorsoft.locationmanager.ENCRYPTION_PASSWORD" android:value="transistorsoft" />
+      <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyBknTadsbQDl8jK6Hua4rtawAwF8mTmqVQ"/>
       <activity

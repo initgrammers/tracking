@@ -11,6 +11,7 @@
 #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
+#import <TSBackgroundFetch/TSBackgroundFetch.h>
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
@@ -28,7 +29,8 @@ static void InitializeFlipper(UIApplication *application) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [GMSServices provideAPIKey:@"AIzaSyBknTadsbQDl8jK6Hua4rtawAwF8mTmqVQ"]; 
-   
+  
+  [[TSBackgroundFetch sharedInstance] didFinishLaunching];
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif

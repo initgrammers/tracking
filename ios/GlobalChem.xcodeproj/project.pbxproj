@@ -17,6 +17,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* GlobalChemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GlobalChemTests.m */; };
 		3E4253915DADA3DFEF3EFD83 /* libPods-GlobalChem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 263DA4017BB7B7FE0A4FB241 /* libPods-GlobalChem.a */; };
+		408743AC254B876C00DF95B6 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 408743AB254B876C00DF95B6 /* RNBackgroundFetch+AppDelegate.m */; };
 		6370C82D94EC4DFAF2B61A9C /* libPods-GlobalChem-GlobalChemTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4108714168DB725278990547 /* libPods-GlobalChem-GlobalChemTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		EF53754BA6D3B59EF76CBA08 /* libPods-GlobalChem-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3635A4DF17F907DC1C8A94 /* libPods-GlobalChem-tvOSTests.a */; };
@@ -55,6 +56,7 @@
 		2C3635A4DF17F907DC1C8A94 /* libPods-GlobalChem-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GlobalChem-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* GlobalChem-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GlobalChem-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* GlobalChem-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GlobalChem-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		408743AB254B876C00DF95B6 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
 		4108714168DB725278990547 /* libPods-GlobalChem-GlobalChemTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GlobalChem-GlobalChemTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4912E9FC203B5781CF1DAF9B /* Pods-GlobalChem-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobalChem-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GlobalChem-tvOS/Pods-GlobalChem-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GlobalChem/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* GlobalChem */ = {
 			isa = PBXGroup;
 			children = (
+				408743AB254B876C00DF95B6 /* RNBackgroundFetch+AppDelegate.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -194,7 +197,6 @@
 				1DFF7815BAAB1AAC5D293C6A /* Pods-GlobalChem-tvOSTests.debug.xcconfig */,
 				ADA0EE622D6BC02A2BE07BCE /* Pods-GlobalChem-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -636,6 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408743AC254B876C00DF95B6 /* RNBackgroundFetch+AppDelegate.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
