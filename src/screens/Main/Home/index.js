@@ -20,11 +20,11 @@ const Home = () => {
     resetClock,
   } = useTicTac(play);
   const canStop = !play && exitsHistory;
+
   const onStart = () => {
     setPlay(true);
     startClock();
   };
-
   const onPause = () => {
     setPlay(false);
     pauseClock();
@@ -34,6 +34,7 @@ const Home = () => {
     resetClock();
     resetTacking();
   };
+
   return (
     <HomeLayout>
       <Text textAlign="center" variant="caption">
@@ -53,10 +54,6 @@ const Home = () => {
         </Text>
         <Text variant="caption">Distancia</Text>
       </Box>
-      {/* <Button
-        label="Ir al mapa.."
-        onPress={() => navigate('Map', {history, distance})}
-      /> */}
       <RoundedButton
         variant="primary"
         label={play ? 'Pausar' : 'Iniciar'}
