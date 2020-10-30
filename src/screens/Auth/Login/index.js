@@ -5,7 +5,8 @@ import Form from './components/Form';
 import {backgroundImage} from '../../../constants';
 
 const Login = () => {
-  const {navigate} = useNavigation();
+  const {reset} = useNavigation();
+
   return (
     <LayoutBackground
       heightForm={320}
@@ -27,7 +28,10 @@ const Login = () => {
   /* return (
     <HomeLayout>
       <Text>Login</Text>
-      <Button label="Ir al Home" onPress={() => navigate('Home')} />
+      <Button
+        label="Ir al Home"
+        onPress={() => reset({routes: [{name: 'Main'}]})}
+      />
     </HomeLayout>
   ); */
 };
