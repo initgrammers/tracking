@@ -4,12 +4,15 @@ import {useNavigation} from '@react-navigation/native';
 import HomeLayout from '../../../Layouts/Home';
 
 const Login = () => {
-  const {navigate} = useNavigation();
+  const {reset} = useNavigation();
 
   return (
     <HomeLayout>
       <Text>Login</Text>
-      <Button label="Ir al Home" onPress={() => navigate('Home')} />
+      <Button
+        label="Ir al Home"
+        onPress={() => reset({routes: [{name: 'Main'}]})}
+      />
     </HomeLayout>
   );
 };

@@ -7,7 +7,7 @@ import useTicTac from '../../../hooks/useTicTac';
 import {Button, Text} from '../../../components';
 
 const Home = () => {
-  const {goBack, navigate} = useNavigation();
+  const {navigate} = useNavigation();
   const [play, setPlay] = useState(false);
   const {resetTacking, history, distance} = useTracking(play);
   const exitsHistory = history.length > 5;
