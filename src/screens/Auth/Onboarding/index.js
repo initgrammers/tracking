@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, ButtonOutline, Text} from '../../../components';
+import {Box, ButtonOutline, Text, Logo} from '../../../components';
 import BackgroundImage from './components/BackgroundImage';
 import {backgroundImage} from '../../../constants';
 import {useNavigation} from '@react-navigation/native';
@@ -8,7 +8,12 @@ const Onboarding = () => {
   const {navigate} = useNavigation();
 
   return (
-    <Box flex={1} alignItems="center" justifyContent="space-around" p="xl">
+    <Box
+      position="relative"
+      flex={1}
+      alignItems="center"
+      justifyContent="space-around"
+      p="xl">
       <BackgroundImage time={2500} images={backgroundImage} />
       <Box
         flex={1}
@@ -32,6 +37,7 @@ const Onboarding = () => {
           onPress={() => navigate('Login')}
         />
       </Box>
+      <Logo />
     </Box>
   );
 };

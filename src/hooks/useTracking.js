@@ -104,14 +104,14 @@ const useTracking = (isActive) => {
           state.enabled,
         );
 
-        if (state.enabled) {
-          ////
-          // 3. Start tracking!
-          //
-          BackgroundGeolocation.start((props) => {
-            console.log('- Start success');
-          });
-        }
+        // if (state.enabled) {
+        ////
+        // 3. Start tracking!
+        //
+        BackgroundGeolocation.start((props) => {
+          console.log('- Start success');
+        });
+        // }
       },
     );
 
